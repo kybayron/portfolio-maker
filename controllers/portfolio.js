@@ -2,7 +2,6 @@ const { v4: uuid } = require('uuid');
 const Portfolio = require('../models/portfolioModel');
 
 const getPortfolio = async (req, res) => {
-    console.log(req.params.googleId);
     try{
         const portfolio = await Portfolio.findOne({googleId: req.params.googleId});
         res.json(portfolio);
