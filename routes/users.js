@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get('/', getUsers);
 router.post('/', createUser);
-router.get('/:uuid', getUser);
-router.delete('/:uuid', deleteUser);
-router.patch('/:uuid', updateUser);
+router.get('/:googleId', getUser);
+router.delete('/:googleId', deleteUser);
+router.patch('/:googleId', updateUser);
 
 module.exports = router;

@@ -3,8 +3,8 @@ const {getPortfolio, createPortfolio, deletePortfolio, updatePortfolio} = requir
 
 const router = express.Router();
 
-router.get('/:uuid',getPortfolio);
+router.get('/:googleId',getPortfolio);
 router.post('/', createPortfolio);
-router.delete('/:uuid', deletePortfolio);
-router.patch('/:uuid', updatePortfolio);
+router.delete('/:googleId', deletePortfolio);
+router.patch('/:googleId', updatePortfolio);
 module.exports = router;

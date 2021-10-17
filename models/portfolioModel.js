@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const portfolioSchema = mongoose.Schema({
-    uuid: String,
-    name: String,
+    googleId: String,
+    fullName: String,
     contactNo: String,
     description: String,
     achievements: Array,

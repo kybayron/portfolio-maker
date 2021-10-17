@@ -1,28 +1,29 @@
 const express = require('express');
-const router = express.Router();
+const authRoutes = express.Router();
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+
+var googleId = null;
+var displayName = null;
+
 require('../passport');
 
-router.use(express.json());
-router.use(express.urlencoded({extended: true}));
-
-router.use(cookieSession({
+authRoutes.use(cookieSession({
     name: 'google-auth-session',
     keys: ['key1', 'key2']
   }));
 
-router.use(passport.initialize());
-router.use(passport.session());
+authRoutes.use(passport.initialize());
+authRoutes.use(passport.session());
 
-router.get('/',
+authRoutes.get('/',
     passport.authenticate('google', {
             scope:
                 ['email', 'profile']
         },
     ));
 
-router.get('/callback',
+authRoutes.get('/callback',
     passport.authenticate('google', {
         failureRedirect: '/login/failed',
     }),
@@ -32,11 +33,13 @@ router.get('/callback',
     }
 );
 
-router.get("/failed", (req, res) => {
+authRoutes.get("/failed", (req, res) => {
     res.send("Failed")
 });
-router.get("/success", (req, res) => {
-    res.send(`Welcome ${req.user.displayName}`)
+authRoutes.get("/success", (req, res) => {
+     res.send(`Welcome ${req.user.displayName}`)
+     displayName = req.user.displayName
+     googleId = req.user.id
 });
 
-module.exports = router;
+module.exports = {authRoutes,displayName,googleId};
