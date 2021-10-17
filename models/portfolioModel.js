@@ -5,9 +5,9 @@ const portfolioSchema = mongoose.Schema({
     name: String,
     contactNo: String,
     description: String,
-    achievements: String,
+    achievements: Array,
     education: String,
-    jobExperience: String,
+    jobExperience: Array,
     socials: String
 });
 
