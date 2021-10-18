@@ -20,7 +20,9 @@ const portfolioSchema = mongoose.Schema({
     
     googleId: String,
     fullName: String,
+    title: String,
     contactNo: String,
+    email: String,
     description: String,
     achievements: [achievementSchema],
     education: String,

@@ -13,6 +13,8 @@ const getPortfolio = async (req, res) => {
 const createPortfolio = async (req, res) => { 
     const googleId = (req.body.googleId) ? req.body.googleId : null;
     const fullName = (req.body.fullName) ? req.body.fullName : null;
+    const title = (req.body.title) ? req.body.title : null;
+    const email = (req.body.email) ? req.body.email : null;
     const contactNo = (req.body.contactNo) ? req.body.contactNo : null;
     const description = (req.body.description) ? req.body.description : null;
     const achievements = (req.body.achievements) ? req.body.achievements : null;
@@ -22,7 +24,9 @@ const createPortfolio = async (req, res) => {
     const portfolio = new Portfolio({
         googleId : googleId,
         fullName : fullName,
+        title: title,
         contactNo : contactNo,
+        email: email,
         description : description,
         achievements : achievements,
         education : education,
