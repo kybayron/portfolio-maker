@@ -5,6 +5,7 @@ const {authRoutes, displayName} = require('./routes/auth.js');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
+const cors = require('cors');
 const passport = require('passport');
 //const cookieSession = require('cookie-session');
 const session = require('express-session'); 
@@ -19,6 +20,7 @@ app.use(passport.session());
 
 app.listen(PORT, () => console.log(`Server Running on port http://localhost:${PORT}`));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 
 mongoose.connect('mongodb+srv://cadetship:Blue%40123%21@cluster0.rceks.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', () => console.log('connected to DB!'));
