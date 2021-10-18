@@ -1,5 +1,6 @@
 const passport =require("passport")
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const Users = require('./models/userModel');
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -16,8 +17,26 @@ passport.use(new GoogleStrategy({
         passReqToCallback   : true
     },
     function(request, accessToken, refreshToken, profile, done) {
-
-            return done(null, profile);
+        console.log(profile.displayName)
+        Users.findOne({
+                googleId: profile.id
+        }, function(err,user){
+                if(err){
+                        return done(err);
+                }
+                if(!user){
+                        user = new Users({
+                                fullName: profile.displayName,
+                                googleId: profile.id
+                        });
+                user.save(function(err){
+                        if (err) console.log(err);
+                        return done(err,profile);
+                });       
+                } else {
+                        return done(err,profile);
+                }
+        });   
             
     }
 ));

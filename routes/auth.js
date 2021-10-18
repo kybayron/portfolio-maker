@@ -37,9 +37,10 @@ authRoutes.get("/failed", (req, res) => {
     res.send("Failed")
 });
 authRoutes.get("/success", (req, res) => {
-     res.send(`Welcome ${req.user.displayName}`)
-     displayName = req.user.displayName
-     googleId = req.user.id
+    displayName = req.user.displayName
+    googleId = req.user.id
+    res.send(`Welcome ${displayName}`)
+    return displayName;
 });
 
 module.exports = {authRoutes,displayName,googleId};
