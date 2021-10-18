@@ -3,18 +3,21 @@ const mongoose = require('mongoose');
 
 
 const jobSchema = new mongoose.Schema({
+    _id: false,
     title: String,
     year: String,
     description: String
 });
 
 const achievementSchema = new mongoose.Schema({
+    _id: false,
     title: String,
     year: String,
     description: String
 });
 
 const portfolioSchema = mongoose.Schema({
+    
     googleId: String,
     fullName: String,
     contactNo: String,
