@@ -28,7 +28,12 @@ const createUser = async (req, res) => {
 const getUser = async (req, res) => {
     try{
         const user = await Users.findOne({googleId: req.params.googleId});
-        res.json(user);
+        if(user!=null){
+            res.json(user);
+        }
+        else{
+            res.status(404).send({message: "Not Found"});
+        }
     }catch(err){
         res.json({message: err});
     }

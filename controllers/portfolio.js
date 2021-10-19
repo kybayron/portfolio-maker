@@ -4,7 +4,11 @@ const Portfolio = require('../models/portfolioModel');
 const getPortfolio = async (req, res) => {
     try{
         const portfolio = await Portfolio.findOne({googleId: req.params.googleId});
-        res.json(portfolio);
+        if(portfolio != null)
+            res.json(portfolio);
+        else{
+            res.status(404).send({message: "Not Found"});
+        }
     }catch(err){
         res.json({message: err});
     }
