@@ -145,12 +145,29 @@
 <script>
 // STYLESHEET/S
 import '../../public/style.scss'
+import axios from 'axios'
 // COMPONENTS
 
 export default {
   name: 'Form',
   components: {
 
+  },
+    methods: {
+    async getData() {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/login/auth"
+        );
+        // JSON responses are automatically parsed.
+       console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  beforeMount(){
+    this.getData();
   }
 }
 </script>

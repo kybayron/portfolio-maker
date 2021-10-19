@@ -15,6 +15,7 @@
   "dependencies": {
     "-": "^0.0.1",
     "axios": "^0.23.0",
+    "connect-history-api-fallback": "^1.6.0",
     "cookie-session": "^1.4.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",

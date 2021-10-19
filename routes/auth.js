@@ -3,6 +3,7 @@ const authRoutes = express.Router();
 const passport = require('passport');
 var googleId = null;
 var displayName = null;
+var session = null;
 require('../passport');
 
 
@@ -17,22 +18,20 @@ authRoutes.get('/',
 authRoutes.get('/callback',
     passport.authenticate('google', {
         failureRedirect: '/login/failed',
-    }),
-    function (req, res) {
-        res.redirect('/login/success')
-
-    }
+        successRedirect: 'http://localhost:5000/login/success'
+    })
 );
 
 authRoutes.get("/failed", (req, res) => {
     res.send("Failed")
 });
+
+authRoutes.get("/auth", (req, res) => {
+    res.send(req.session.passport.user.id)
+});
 authRoutes.get("/success", (req, res) => {
-    //console.log(req.session)
-    displayName = req.user.displayName
-    googleId = req.user.id
-    res.send(`Welcome ${displayName}`)
-    return displayName;
+    res.redirect('http://localhost:5000/create')
+    
 });
 
 module.exports = {authRoutes,displayName,googleId};
