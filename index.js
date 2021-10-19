@@ -31,7 +31,7 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api/users', usersRoutes);
 app.use('/api/portfolio',portfolioRoutes);
 app.use('/login',authRoutes);
-app.use('/api/*', (req,res) => {
+app.get('/api/*', (req,res) => {
     res.status(404).send({message: "Not Found"});
 })
 app.use(history());
