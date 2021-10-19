@@ -14,8 +14,6 @@
 <script>
 import '../../public/style.scss'
 import Login from '../components/Login'
-import axios from 'axios'
-const baseURL = "http://localhost:5000/users"
 
 export default {
     name: 'Home',

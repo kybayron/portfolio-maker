@@ -20,7 +20,7 @@
         <input type="text" v-model="title" class="form-control" id="title" placeholder="Cadet Engineer">
       </div>
       <div class="form-group">
-        <label for="bio">BIO {{description}}</label>
+        <label for="bio">BIO</label>
         <textarea class="form-control" v-model="description" id="bio" rows="3" placeholder="Tell the world about yourself"></textarea>
       </div>
       <div class="form-group">
@@ -134,7 +134,7 @@
 
       <!-- NEET 2 MAKE SUBMIT BUTTON -->
       <!-- <button type="submit" class="btn">Create Portfolio</button> -->
-      <a class="btn" v-on:click="postPortfolio" a href="/portfolio">Create Portfolio!</a>
+      <a class="btn" v-on:click="postPortfolio" a v-bind:href="'/portfolio/'+this.googleId">Create Portfolio!</a>
 
 
     </form>
@@ -158,7 +158,7 @@
 import '../../public/style.scss'
 // COMPONENTS
 import axios from 'axios'
-const baseURL = "http://localhost:5000/portfolio/"
+const baseURL = "http://localhost:5000/api/portfolio/"
 
 export default {
   name: 'Form',

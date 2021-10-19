@@ -17,7 +17,7 @@
 // STYLESHEET/S
 import '../../public/style.scss'
 import axios from 'axios'
-const baseURL = "http://localhost:5000/portfolio/"
+const baseURL = "http://localhost:5000/api/portfolio/"
 
 export default {
     name: 'BioOne',

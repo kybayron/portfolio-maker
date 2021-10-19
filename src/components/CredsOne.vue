@@ -9,7 +9,7 @@
         <p>{{achievement.description}}</p>
         </li>
    
-    <h2>Professional Experience. {{id}}</h2>
+    <h2>Professional Experience.</h2>
       <li v-for="job of portfolio.jobExperience" :key="job">
         <h3>{{job.title}} {{job.year}}</h3>
         <p>{{job.description}}</p>
@@ -23,7 +23,7 @@
 // STYLESHEET/S
 import '../../public/style.scss'
 import axios from 'axios'
-const baseURL = "http://localhost:5000/portfolio/"
+const baseURL = "http://localhost:5000/api/portfolio/"
 
 export default {
     name: 'CredsOne',

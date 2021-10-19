@@ -12,7 +12,7 @@ const PORT = 5000;
 const app = express();
 const path = __dirname + '/dist/';
 
-//add DB_URL here
+mongoose.connect('mongodb+srv://cadetship:Blue%40123%21@cluster0.rceks.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', () => console.log('connected to DB!'));
 app.use(session({
     resave: true,
     saveUninitialized: true,
