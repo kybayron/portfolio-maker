@@ -25,7 +25,10 @@ const createPortfolio =  (req, res) => {
         }
         else if(!req.body.fullName){
             res.status(400).send({message: "fullName is Required"});
-        }
+        } 
+        else if(!req.body.email.match(/\S+@\S+\.\S+/)){
+            res.status(400).send({message: "Email is not valid"});
+        } 
         else if(user){
             res.status(422).send({message: "ID Already Exists"});
         }
