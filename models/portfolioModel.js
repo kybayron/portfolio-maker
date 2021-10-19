@@ -28,14 +28,32 @@ const portfolioSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    title: String,
-    contactNo: String,
-    email: String,
-    description: String,
+    title: {
+        type: String,
+        required: true
+    },
+    contactNo: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
     achievements: [achievementSchema],
-    education: String,
+    education: {
+        type: String,
+        required: true
+    },
     jobExperience: [jobSchema],
-    socials: String
+    socials: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = mongoose.model('Portfolio', portfolioSchema);

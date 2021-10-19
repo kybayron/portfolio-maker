@@ -26,9 +26,45 @@ const createPortfolio =  (req, res) => {
         else if(!req.body.fullName){
             res.status(400).send({message: "fullName is Required"});
         } 
+        else if(!(req.body.fullName.length <= 26 && req.body.fullName.length >= 2)){
+            res.status(400).send({message: "fullName must be 2 to 26 characters"});
+        }
+        else if(!req.body.title){
+            res.status(400).send({message: "Title is Required"});
+        }
+        else if(!(req.body.title.length <= 26 && req.body.title.length >= 2)){
+            res.status(400).send({message: "Title must be 2 to 26 characters"});
+        } 
+        else if(!req.body.email){
+            res.status(400).send({message: "Email is Required"});
+        } 
         else if(!req.body.email.match(/\S+@\S+\.\S+/)){
             res.status(400).send({message: "Email is not valid"});
+        }
+        else if(!req.body.contactNo){
+            res.status(400).send({message: "Contact Number is Required"});
+        }
+        else if(!req.body.contactNo.match(/^(09|\+639)\d{9}$/)){
+            res.status(400).send({message: "Contact Number is not valid"});
+        }
+        else if(!req.body.description){
+            res.status(400).send({message: "Description is Required"});
+        }
+        else if(!(req.body.description.length <= 280 && req.body.description.length >= 2)){
+            res.status(400).send({message: "Description must be 2 to 280 characters"});
+        }
+        else if(!req.body.education){
+            res.status(400).send({message: "Education is Required"});
+        }
+        else if(!(req.body.education.length <= 26 && req.body.education.length >= 2)){
+            res.status(400).send({message: "Education must be 2 to 26 characters"});
         } 
+        else if(!req.body.socials){
+            res.status(400).send({message: "Socials is Required"});
+        }
+        else if(!(req.body.socials.length <= 26 && req.body.socials.length >= 2)){
+            res.status(400).send({message: "Socials must be 2 to 26 characters"});
+        }   
         else if(user){
             res.status(422).send({message: "ID Already Exists"});
         }
