@@ -10,7 +10,7 @@ import '../public/style.scss'
 export default {
   name: 'App',
   components: {
-  }
+  },
 }
 </script>
 

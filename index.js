@@ -29,8 +29,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 
-app.use('/users', usersRoutes);
-app.use('/portfolio',portfolioRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/portfolio',portfolioRoutes);
 app.use('/login',authRoutes);
 
 app.use(history());

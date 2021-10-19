@@ -1,14 +1,14 @@
 <template>
 
         <div class="card-bio">
-            <h1>Juan Dela Cruz.</h1>
-            <h3>Cadet Engineer.</h3>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ex officia suscipit adipisci culpa sunt libero minima impedit, earum deserunt. Ratione recusandae eos molestias voluptas numquam enim, nihil praesentium maxime?</h2>
+            <h1>{{portfolio.fullName}}</h1>
+            <h3>{{portfolio.title}}</h3>
+            <h2>{{portfolio.description}}</h2>
             <br>
             <h3>Interested? Catch me at:</h3>
-            <p>EMAIL</p>
-            <p>CONTACT NO</p>
-            <p>SOCIALS</p>
+            <p>{{portfolio.email}}</p>
+            <p>{{portfolio.contactNo}}</p>
+            <p>{{portfolio.socials}}</p>
         </div>
 
 </template>
@@ -16,8 +16,25 @@
 <script>
 // STYLESHEET/S
 import '../../public/style.scss'
+import axios from 'axios'
+const baseURL = "http://localhost:5000/portfolio/"
 
 export default {
     name: 'BioOne',
+    props: ['id'],
+    data() {
+        return {
+        portfolio: {},
+        googleId: this.id
+        }
+    },
+    async created() {
+        try {
+        const res = await axios.get(baseURL+this.googleId)
+        this.portfolio = res.data
+        } catch (e) {
+        console.error(e)
+        }
+    } 
 }
 </script>

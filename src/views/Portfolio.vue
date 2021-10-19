@@ -1,29 +1,31 @@
 <template>
 <div id="app">
     <div class="half left">
-        <BioOne />
+        <BioOne :id="id" />
     </div>
     <div class="half right">
-        <CredsOne />
+        <CredsOne :id="id" />
     </div>
 </div>
-
 </template>
 
 <script>
 import '../../public/style.scss'
-
 import BioOne from '../components/BioOne'
 import CredsOne from '../components/CredsOne'
 
 export default {
     name: 'Portfolio',
+    data() {
+        return{
+            id: this.$route.params.id
+        }
+    },
     components: {
         BioOne,
         CredsOne,
-    }
+    },
 }
-
 
 </script>
 

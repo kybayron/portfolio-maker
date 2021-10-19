@@ -18,7 +18,10 @@ const achievementSchema = new mongoose.Schema({
 
 const portfolioSchema = mongoose.Schema({
     
-    googleId: String,
+    googleId: {
+        type: String,
+        unique: true
+    },
     fullName: String,
     title: String,
     contactNo: String,

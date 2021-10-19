@@ -15,7 +15,7 @@ const routes = [{
         component: Form,
     },
     {
-        path: '/portfolio',
+        path: '/portfolio/:id',
         name: 'Portfolio',
         component: Portfolio,
     },
