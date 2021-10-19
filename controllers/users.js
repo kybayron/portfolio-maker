@@ -20,6 +20,7 @@ const createUser = async (req, res) => {
         const savedUser = await user.save();
         res.json(savedUser);
     }catch(err){
+        res.status(400);
         res.json({message: err});
     }
     console.log(`User [${req.body.fullName}] added to the database.`);

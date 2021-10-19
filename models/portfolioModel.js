@@ -21,9 +21,13 @@ const portfolioSchema = mongoose.Schema({
     googleId: {
         type: String,
         unique: true,
-        immutable: true
+        immutable: true,
+        required: true
     },
-    fullName: String,
+    fullName: {
+        type: String,
+        required: true
+    },
     title: String,
     contactNo: String,
     email: String,

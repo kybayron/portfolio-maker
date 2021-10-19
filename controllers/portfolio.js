@@ -20,6 +20,12 @@ const createPortfolio =  (req, res) => {
         if(err){
             return done(err);
         }
+        else if(!req.body.googleId){
+            res.status(400).send({message: "googleId is Required"});
+        }
+        else if(!req.body.fullName){
+            res.status(400).send({message: "fullName is Required"});
+        }
         else if(user){
             res.status(422).send({message: "ID Already Exists"});
         }
