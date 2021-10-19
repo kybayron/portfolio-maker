@@ -127,11 +127,6 @@
         <input type="text" v-model="socials" class="form-control" id="socials" placeholder="Linkedin/IG/etc">
       </div>
 
-      <div class="form-group"> 
-        <label for="name">GOOGLEID (TEMPORARY this must be removed)</label>
-        <input type="text" v-model="googleId" class="form-control" id="name" placeholder="123">
-      </div>
-
       <!-- NEET 2 MAKE SUBMIT BUTTON -->
       <!-- <button type="submit" class="btn">Create Portfolio</button> -->
       <a class="btn" v-on:click="postPortfolio" a v-bind:href="'/portfolio/'+this.googleId">Create Portfolio!</a>
@@ -279,8 +274,10 @@ export default {
       async beforeMount() { //RUN CHECK AUTHENTICATION ON LOAD
         try {
           const res = await axios.get('http://localhost:5000/login/auth')
-          if(res.data)
+          if(res.data){
            this.auth = true;
+           this.googleId = res.data
+          }
           else this.auth = false;  
         } catch (e) {
         console.error(e)
