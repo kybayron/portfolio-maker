@@ -31,10 +31,9 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api/users', usersRoutes);
 app.use('/api/portfolio',portfolioRoutes);
 app.use('/login',authRoutes);
-
+app.get('/api/*', (req,res) => {
+    res.status(404).send({message: "Not Found"});
+})
 app.use(history());
 app.use(express.static(path));
-app.get('/', (req,res) => {
-    console.log(req.session);
-    res.sendFile(path + "index.html");
-});
+

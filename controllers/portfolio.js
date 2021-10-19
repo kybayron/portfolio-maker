@@ -43,7 +43,7 @@ const createPortfolio = async (req, res) => {
 
 const updatePortfolio = async (req,res) => {
     try{
-        const updatedPortfolio = await portfolio.updateOne({googleId: req.params.googleId}, {$set: req.body});
+        const updatedPortfolio = await Portfolio.updateOne({googleId: req.params.googleId}, {$set: req.body});
         res.json(updatedPortfolio);
     }catch(err){
         res.json({message: err});
@@ -52,7 +52,7 @@ const updatePortfolio = async (req,res) => {
 
 const deletePortfolio = async (req, res) => { 
     try{
-        const removedPortfolio = await portfolio.remove({googleId: req.params.googleId});
+        const removedPortfolio = await Portfolio.remove({googleId: req.params.googleId});
         res.json(removedPortfolio);
     }catch(err){
         res.json({message: err});
