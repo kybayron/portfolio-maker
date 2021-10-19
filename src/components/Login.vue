@@ -1,5 +1,6 @@
 <template>
     <a class="btn" href="/create">Try now!</a>
+    <a class="btn" href="/login">Login</a>
 </template>
 
 <script>
