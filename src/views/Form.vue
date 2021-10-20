@@ -2,12 +2,14 @@
 
 <div id="app">
   <div class="half left">
-    <div class="placeholderasset"><div></div></div>
+    <div class="placeholderasset"><div>
+     </div></div>
   </div>
 
   <div class="half right">
-
+     
     <form v-if="auth">
+    <a class="btn" href="/logout">Logout</a>  
     <!-- <form> -->
       <h2>About.</h2>
       <!-- NAME - TITLE - BIO - EDUCATION -->

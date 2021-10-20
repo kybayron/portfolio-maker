@@ -31,6 +31,10 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api/users', usersRoutes);
 app.use('/api/portfolio',portfolioRoutes);
 app.use('/login',authRoutes);
+app.get('/logout',(req,res) => {
+    req.session.destroy();
+    res.redirect('http://localhost:5000/');
+})
 app.get('/api/*', (req,res) => {
     res.status(404).send({message: "Not Found"});
 })
