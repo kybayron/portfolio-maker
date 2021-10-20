@@ -106,8 +106,8 @@ const deletePortfolio = async (req, res) => {
     }
 };
 
-const getError = async (req, res) => { 
+const sendError = async (req, res) => { 
     res.status(405).send({message: "Method not supported"});
 };
 
-module.exports = {getPortfolio, createPortfolio, updatePortfolio, deletePortfolio, getError};
+module.exports = {getPortfolio, createPortfolio, updatePortfolio, deletePortfolio, sendError};
