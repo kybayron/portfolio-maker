@@ -11,7 +11,7 @@ const getUsers = async (req, res) => {
 }
 
 const createUser = async (req, res) => {   
-    console.log(req.body);
+
     const user = new Users({
         fullName: req.body.fullName,
         googleId: req.body.googleId
@@ -23,7 +23,7 @@ const createUser = async (req, res) => {
         res.status(400);
         res.json({message: err});
     }
-    console.log(`User [${req.body.fullName}] added to the database.`);
+
 };
 
 const getUser = async (req, res) => {
