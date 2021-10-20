@@ -68,14 +68,14 @@ const createPortfolio =  (req, res) => {
             res.status(422).send({message: "ID Already Exists"});
         }
         else {
-            const googleId = (req.body.googleId) ? req.body.googleId : null;
-            const fullName = (req.body.fullName) ? req.body.fullName : null;
-            const title = (req.body.title) ? req.body.title : null;
-            const email = (req.body.email) ? req.body.email : null;
-            const contactNo = (req.body.contactNo) ? req.body.contactNo : null;
-            const description = (req.body.description) ? req.body.description : null;
+            //const googleId = (req.body.googleId) ? req.body.googleId : null;
+            //const fullName = (req.body.fullName) ? req.body.fullName : null;
+            //const title = (req.body.title) ? req.body.title : null;
+            //const email = (req.body.email) ? req.body.email : null;
+            //const contactNo = (req.body.contactNo) ? req.body.contactNo : null;
+            //const description = (req.body.description) ? req.body.description : null;
             const achievements = (req.body.achievements) ? req.body.achievements : null;
-            const education = (req.body.education) ? req.body.education : null;
+            //const education = (req.body.education) ? req.body.education : null;
             const jobExperience = (req.body.jobExperience) ? req.body.jobExperience : null;
             const socials = (req.body.socials) ? req.body.socials : null;
             const portfolio = new Portfolio({
