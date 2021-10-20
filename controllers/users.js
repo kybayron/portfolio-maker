@@ -10,20 +10,32 @@ const getUsers = async (req, res) => {
     }
 }
 
-const createUser = async (req, res) => {   
-
-    const user = new Users({
-        fullName: req.body.fullName,
-        googleId: req.body.googleId
+const createUser =  (req, res) => { 
+    Users.findOne({googleId: req.body.googleId}, function(err,user){
+        if(err){
+            return done(err);
+        }
+        else if(!req.body.googleId){
+            res.status(400).send({message: "googleId is Required"});
+        }
+        else if(!req.body.fullName){
+            res.status(400).send({message: "fullName is Required"});
+        } 
+        else if(!(req.body.fullName.length <= 50 && req.body.fullName.length >= 2)){
+            res.status(400).send({message: "fullName must be 2 to 50 characters"});
+        }
+        else if(user){
+            res.status(422).send({message: "ID Already Exists"});
+        }
+        else {
+            const user = new Users({
+                googleId : req.body.googleId,
+                fullName : req.body.fullName
+            });
+                user.save();
+                res.status(200).send({message: "Successful"});
+            }
     });
-    try{
-        const savedUser = await user.save();
-        res.json(savedUser);
-    }catch(err){
-        res.status(400);
-        res.json({message: err});
-    }
-
 };
 
 const getUser = async (req, res) => {
