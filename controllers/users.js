@@ -107,4 +107,8 @@ const updateUser = async (req,res) => {
     }
 };
 
-module.exports = {getUsers, createUser, getUser, deleteUser, updateUser}
+const sendError = async (req, res) => { 
+    res.status(405).send({message: "Method not supported"});
+};
+
+module.exports = {getUsers, createUser, getUser, deleteUser, updateUser, sendError}
