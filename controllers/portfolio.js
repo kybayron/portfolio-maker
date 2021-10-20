@@ -15,6 +15,21 @@ const getPortfolio = async (req, res) => {
 }
 
 const createPortfolio =  (req, res) => { 
+    var flag = 0;
+    const body = req.body
+    var myArr = ["googleId","fullName","title","contactNo","email","description","achievements","education","jobExperience","socials"];
+
+    for(var key in body){
+
+        if(myArr.indexOf(key) < 0){
+            flag = 1;
+            break;
+        }
+    }
+    if(flag == 1){
+        res.status(400).send({message: "Invalid Key"});
+    }
+    else{
     Portfolio.findOne({googleId: req.body.googleId}, function(err,user){
         if(err){
             return done(err);
@@ -85,13 +100,34 @@ const createPortfolio =  (req, res) => {
     });
     
 
-    
+} 
 };
 
 const updatePortfolio = async (req,res) => {
+    var flag = 0;
+    const body = req.body
+    var myArr = ["googleId","fullName","title","contactNo","email","description","achievements","education","jobExperience","socials"];
     try{
+        for(var key in body){
+            if(key == 'googleId'){
+                flag = 2;
+                break;
+            }
+            if(myArr.indexOf(key) < 0){
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 1){
+            res.status(400).send({message: "Invalid Key"});
+        }
+        else if(flag == 2){
+            res.status(422).send({message: "Cannot Update googleId"});
+        }
+        else{
         const updatedPortfolio = await Portfolio.updateOne({googleId: req.params.googleId}, {$set: req.body});
         res.json(updatedPortfolio);
+        }
     }catch(err){
         res.json({message: err});
     }
