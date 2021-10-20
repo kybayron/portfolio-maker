@@ -7,12 +7,12 @@ const history = require('connect-history-api-fallback');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session'); 
-
+require('dotenv').config();
 const PORT = 5000;
 const app = express();
 const path = __dirname + '/dist/';
 
-mongoose.connect('mongodb+srv://cadetship:Blue%40123%21@cluster0.rceks.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', () => console.log('connected to DB!'));
+mongoose.connect(process.env.DB_CONNECT, () => console.log('connected to DB!'));
 app.use(session({
     resave: true,
     saveUninitialized: true,
