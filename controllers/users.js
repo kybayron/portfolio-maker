@@ -10,7 +10,22 @@ const getUsers = async (req, res) => {
     }
 }
 
-const createUser =  (req, res) => { 
+const createUser =  (req, res) => {
+    var flag = 0;
+    const body = req.body
+    var myArr = ["googleId","fullName"];
+
+    for(var key in body){
+
+        if(myArr.indexOf(key) < 0){
+            flag = 1;
+            break;
+        }
+    }
+    if(flag == 1){
+        res.status(400).send({message: "Invalid Key"});
+    }
+    else{     
     Users.findOne({googleId: req.body.googleId}, function(err,user){
         if(err){
             return done(err);
@@ -36,6 +51,7 @@ const createUser =  (req, res) => {
                 res.status(200).send({message: "Successful"});
             }
     });
+}
 };
 
 const getUser = async (req, res) => {
@@ -62,9 +78,30 @@ const deleteUser = async (req, res) => {
 };
 
 const updateUser = async (req,res) => {
+    var flag = 0;
+    const body = req.body
+    var myArr = ["googleId","fullName"];
     try{
-        const updatedUser = await Users.updateOne({googleId: req.params.googleId}, {$set: req.body});
-        res.json(updatedUser);
+        for(var key in body){
+            if(key == 'googleId'){
+                flag = 2;
+                break;
+            }
+            if(myArr.indexOf(key) < 0){
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 1){
+            res.status(400).send({message: "Invalid Key"});
+        }
+        else if(flag == 2){
+            res.status(422).send({message: "Cannot Update googleId"});
+        }
+        else{
+            const updatedUser = await Users.updateOne({googleId: req.params.googleId}, {$set: req.body});
+            res.json(updatedUser);
+        }
     }catch(err){
         res.json({message: err});
     }
