@@ -152,18 +152,18 @@ Passes user through Google Authorization Portal
 
 **FIELDS AND DEFINITIONS**
 
-FIELD | TYPE | DESCRIPTION
------ | ---- | -----------
-googleId | String | ID received from Google Oauth, used as the user portfolio's unique ID
-fullName | String | User's full name
-title | String | User's professional title (ex. Cadet Engineer)
-contactNo | String | User's mobile or phone number
-email | String | User's email
-description | String | A quick Bio or summary of the user's credentials
-achievements | Array | Array of [Title, Year, Description] that describe a user's notable credentials
-education | String | Educational achievement such as university and degree
-jobExperience | Array | Similar to achievements, this refers to multiple arrays of [Title, Year, Description] that showcase a user's previous job titles and experience
-socials | String | Social media pages or links such as linkedin
+FIELD | REQUIRED | SPECIFICATIONS | DESCRIPTION
+----- | ---- | -------- | -----------
+googleId | Y | N/A | ID received from Google Oauth, used as the user portfolio's unique ID
+fullName | Y | Must be 2-50 characters | User's full name
+title | Y | Must be 2-50 characters | User's professional title (ex. Cadet Engineer)
+contactNo | Y | Must be a valid email | User's mobile or phone number
+email | Y | Must be a valid email | User's email
+description | Y | Must be 2-280 characters | A quick Bio or summary of the user's credentials
+achievements | N | N/A | Array of [Title, Year, Description] that describe a user's notable credentials
+education | Y | Must be 2-50 characters | Educational achievement such as university and degree
+jobExperience | N | N/A | Similar to achievements, this refers to multiple arrays of [Title, Year, Description] that showcase a user's previous job titles and experience
+socials | N | N/A | Social media pages or links such as linkedin
 
 **DATA MODEL**
 
