@@ -1,5 +1,4 @@
 const { v4: uuid } = require('uuid');
-const { deleteOne } = require('../models/portfolioModel');
 const Portfolio = require('../models/portfolioModel');
 
 const getPortfolio = async (req, res) => {
