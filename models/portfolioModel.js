@@ -50,10 +50,7 @@ const portfolioSchema = mongoose.Schema({
         required: true
     },
     jobExperience: [jobSchema],
-    socials: {
-        type: String,
-        required: true
-    },
+    socials: String
 });
 
 module.exports = mongoose.model('Portfolio', portfolioSchema);

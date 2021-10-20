@@ -57,36 +57,23 @@ const createPortfolio =  (req, res) => {
         }
         else if(!(req.body.education.length <= 50 && req.body.education.length >= 2)){
             res.status(400).send({message: "Education must be 2 to 50 characters"});
-        } 
-        else if(!req.body.socials){
-            res.status(400).send({message: "Socials is Required"});
-        }
-        else if(!(req.body.socials.length <= 50 && req.body.socials.length >= 2)){
-            res.status(400).send({message: "Socials must be 2 to 50 characters"});
-        }   
+        }  
         else if(user){
             res.status(422).send({message: "ID Already Exists"});
         }
         else {
-            //const googleId = (req.body.googleId) ? req.body.googleId : null;
-            //const fullName = (req.body.fullName) ? req.body.fullName : null;
-            //const title = (req.body.title) ? req.body.title : null;
-            //const email = (req.body.email) ? req.body.email : null;
-            //const contactNo = (req.body.contactNo) ? req.body.contactNo : null;
-            //const description = (req.body.description) ? req.body.description : null;
             const achievements = (req.body.achievements) ? req.body.achievements : null;
-            //const education = (req.body.education) ? req.body.education : null;
             const jobExperience = (req.body.jobExperience) ? req.body.jobExperience : null;
             const socials = (req.body.socials) ? req.body.socials : null;
             const portfolio = new Portfolio({
-                googleId : googleId,
-                fullName : fullName,
-                title: title,
-                contactNo : contactNo,
-                email: email,
-                description : description,
+                googleId : req.body.googleId,
+                fullName : req.body.fullName,
+                title: req.body.title,
+                contactNo : req.body.contactNo,
+                email: req.body.email,
+                description : req.body.description,
                 achievements : achievements,
-                education : education,
+                education : req.body.education,
                 jobExperience : jobExperience,
                 socials : socials
             });
