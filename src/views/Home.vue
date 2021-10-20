@@ -4,7 +4,7 @@
         <div class="placeholderasset"><div></div></div>
     </div>
     <div class="half right">
-        <h1>Build your own awseome portfolio with !!!APPNAME!!!</h1>
+        <h1>Build your own awseome portfolio with portfol.io!!</h1>
         <Login />
     </div>
 </div>
