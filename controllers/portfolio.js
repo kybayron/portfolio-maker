@@ -1,4 +1,3 @@
-const { v4: uuid } = require('uuid');
 const Portfolio = require('../models/portfolioModel');
 
 const getPortfolio = async (req, res) => {

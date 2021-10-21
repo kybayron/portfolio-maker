@@ -1,7 +1,7 @@
 const express = require('express');
 const usersRoutes = require('./routes/users.js'); 
 const portfolioRoutes = require('./routes/portfolio.js'); 
-const {authRoutes, displayName} = require('./routes/auth.js');
+const {authRoutes} = require('./routes/auth.js');
 const passport = require('passport');
 const history = require('connect-history-api-fallback');
 const mongoose = require('mongoose');

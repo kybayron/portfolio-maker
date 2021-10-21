@@ -1,4 +1,3 @@
-const { v4: uuid } = require('uuid');
 const Users = require('../models/userModel');
 
 const getUsers = async (req, res) => {

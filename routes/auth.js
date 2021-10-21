@@ -1,8 +1,6 @@
 const express = require('express');
 const authRoutes = express.Router();
 const passport = require('passport');
-var googleId = null;
-var displayName = null;
 require('../passport');
 
 
@@ -27,7 +25,6 @@ authRoutes.get("/failed", (req, res) => {
 
 authRoutes.get("/auth", (req, res) => {
     if(req.session.hasOwnProperty('passport')){
-        console.log({googleId: req.session.passport.user.id})
         res.send({googleId: req.session.passport.user.id})
     }
     else
@@ -38,4 +35,4 @@ authRoutes.get("/success", (req, res) => {
     
 });
 
-module.exports = {authRoutes,displayName,googleId};
+module.exports = {authRoutes};
