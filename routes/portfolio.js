@@ -10,4 +10,5 @@ router.patch('/:googleId', updatePortfolio);
 router.get('/', sendError);
 router.delete('/',sendError);
 router.patch('/',sendError);
+router.put('/', sendError);
 module.exports = router;

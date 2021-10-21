@@ -11,4 +11,5 @@ router.patch('/:googleId', updateUser);
 router.post('/:googleId', sendError);
 router.delete('/',sendError);
 router.patch('/', sendError);
+router.put('/', sendError);
 module.exports = router;
