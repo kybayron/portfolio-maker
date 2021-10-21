@@ -69,7 +69,7 @@ const getUser = async (req, res) => {
 
 const deleteUser = async (req, res) => { 
     try{
-        const removedUser = await Users.remove({googleId: req.params.googleId});
+        const removedUser = await Users.deleteOne({googleId: req.params.googleId});
         res.json(removedUser);
     }catch(err){
         res.json({message: err});

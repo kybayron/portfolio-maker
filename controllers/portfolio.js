@@ -134,7 +134,7 @@ const updatePortfolio = async (req,res) => {
 
 const deletePortfolio = async (req, res) => { 
     try{
-        const removedPortfolio = await Portfolio.remove({googleId: req.params.googleId});
+        const removedPortfolio = await Portfolio.deleteOne({googleId: req.params.googleId});
         res.json(removedPortfolio);
     }catch(err){
         res.json({message: err});
