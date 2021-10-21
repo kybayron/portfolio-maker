@@ -12,4 +12,6 @@ router.delete('/',sendError);
 router.patch('/',sendError);
 router.put('/', sendError);
 router.put('/:googleId', sendError);
+router.post('/:googleId', sendError);
+
 module.exports = router;
