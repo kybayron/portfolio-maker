@@ -31,9 +31,10 @@ The application implements a REST API using Node.js for the backend with Express
 Karl Bayron | Ninielle Pascual | Rog Gungon |
 ----------- | ---------------- | ---------- |
 Backend | Frontend | Backend-Frontend integration
-Database Handling | UI/UX | Dynamic Linking
-API Design | Frontend Routing | Implementation of Methods on Frontend
-Error Code Handling | Documentation | Field Validation
+Database Handling & Routing | UI/UX | Dynamic Linking in Vue
+API Design & Routing | Frontend Routing/Rendering | Implementation of HTTP Methods
+Error Code Handling | Documentation | API Field Validation
+Google Oauth2 | | Test Cases and Results
 
 ## FEATURES
 
@@ -183,6 +184,7 @@ socials | N | N/A | Social media pages or links such as linkedin
 ```
 ### Response Codes
 - 200 OK - request successful
+- 400 - field validation error; incomplete requirements
 - 404 - resource not found (ID does not exist)
 - 405 - method not supported (ex. GET /portfolio)
 - 422 - resource already exists
@@ -249,3 +251,13 @@ Delete a portfolio by its googleId. Idempotent.
 Update a portfolio by its googleId.
 
 ---
+---
+
+# Appendix
+
+## A. TEST CASES
+
+You may find the complete test cases at: https://docs.google.com/spreadsheets/d/1XRrvBODVI9HFmS19k0YRjIgKUt-qkyYjYCFJ8YYRuj4/edit?usp=sharing
+
+| Description | HTTP Method | HTTP Path | Request Body | Expected Status Code | Actual Status Code | Expected Response Body | Actual Response Body |
+| ----------- | ----------- | --------- | ------------ | -------------------- | ------------------ | ---------------------- | -------------------- |
