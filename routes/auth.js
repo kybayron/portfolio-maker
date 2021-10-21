@@ -26,8 +26,10 @@ authRoutes.get("/failed", (req, res) => {
 });
 
 authRoutes.get("/auth", (req, res) => {
-    if(req.session.hasOwnProperty('passport'))
-        res.send(req.session.passport.user.id)
+    if(req.session.hasOwnProperty('passport')){
+        console.log({googleId: req.session.passport.user.id})
+        res.send({googleId: req.session.passport.user.id})
+    }
     else
         res.send(null)
 });
